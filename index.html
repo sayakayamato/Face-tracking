@@ -8,6 +8,7 @@
   /* video 要素の上に canvas 要素をオーバーレイするための CSS */
   #container {              /* コンテナ用の div について */
     position: relative;     /* 座標指定を相対値指定にする */
+    margin-left: 30%;
   }
   #video {                  /* カメラ映像を流す video について */
     transform: scaleX(-1);  /* 左右反転させる */
@@ -18,13 +19,16 @@
     left: 0;                /* X座標を0に */
     top: 0;                 /* Y座標を0に */
   }
+  #dat {
+    margin-left: 30%;
+  }
 </style>
 </head>
  
 <body>
-<div id="container">  <!-- video の上に canvas をオーバーレイするための div 要素 -->
-  <video id="video" width="600" height="400" margin-left="500" autoplay></video>  <!-- カメラ映像を流す video -->
-  <canvas id="canvas" width="600" height="400" margin-left="500"></canvas>        <!-- 重ねて描画する canvas -->
+<div id="container" >  <!-- video の上に canvas をオーバーレイするための div 要素 -->
+  <video id="video" width="600" height="400"  autoplay></video>  <!-- カメラ映像を流す video -->
+  <canvas id="canvas" width="600" height="400"></canvas>        <!-- 重ねて描画する canvas -->
 </div>
 <div id="dat"></div>  <!-- データ表示用 div 要素 -->
  
