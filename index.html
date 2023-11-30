@@ -28,7 +28,7 @@
 <body>
 <div id="container" >  <!-- video の上に canvas をオーバーレイするための div 要素 -->
   <video id="video" width="600" height="400"  autoplay></video>  <!-- カメラ映像を流す video -->
-  <canvas  muted playsinline id="canvas" width="600" height="400"></canvas>        <!-- 重ねて描画する canvas -->
+  <canvas  playsinline id="canvas" width="600" height="400"></canvas>        <!-- 重ねて描画する canvas -->
 </div>
 <div id="dat"></div>  <!-- データ表示用 div 要素 -->
  
@@ -44,7 +44,7 @@ var context = canvas.getContext("2d");                  // canvas の context �
  
 // getUserMedia によるカメラ映像の取得
 var media = navigator.mediaDevices.getUserMedia({       // メディアデバイスを取得
-  video: {facingMode: {exact: 'user'}},                          // カメラの映像を使う（スマホならインカメラ）
+  video: {facingMode: "user"},                          // カメラの映像を使う（スマホならインカメラ）
   audio: false                                          // マイクの音声は使わない
 });
 media.then((stream) => {                                // メディアデバイスが取得できたら
