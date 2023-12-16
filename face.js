@@ -1,0 +1,1 @@
+const me = pos[25][0];

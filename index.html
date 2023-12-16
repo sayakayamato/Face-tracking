@@ -27,14 +27,17 @@
  
 <body>
 <div id="container" >  <!-- video の上に canvas をオーバーレイするための div 要素 -->
-  <video id="video" width="600" height="400"  autoplay></video>  <!-- カメラ映像を流す video -->
+  <video id="video" width="600" height="400"  autoplay muted playsinline></video>  <!-- カメラ映像を流す video -->
   <canvas  playsinline id="canvas" width="600" height="400"></canvas>        <!-- 重ねて描画する canvas -->
 </div>
 <div id="dat"></div>  <!-- データ表示用 div 要素 -->
  
 <!-- clmtrackr 関連ファイルの読み込み -->
+
 <script src="clmtrackr.js"></script>          <!-- clmtrackr のメインライブラリの読み込み -->
 <script src="model_pca_20_svm.js"></script>   <!-- 顔モデル（※）の読み込み -->
+<sfcript src="face.js"></sfcript>
+
  
 <script>
 // もろもろの準備
@@ -73,10 +76,23 @@ function showData(pos) {
     str += "特徴点" + i + ": ("
          + Math.round(pos[i][0]) + ", "                 // X座標（四捨五入して整数に）
          + Math.round(pos[i][1]) + ")<br>";             // Y座標（四捨五入して整数に）
-  }
+   }
   var dat = document.getElementById("dat");             // データ表示用div要素の取得
   dat.innerHTML = str;                                  // データ文字列の表示
 }
+
+function FaceJudge(){
+    const migime = Math.round(pos[25][0]);
+    const hidarime = Math.round(pos[30][0]);
+    if((hidarime - migime) < 20){
+        console.log("目が近いです");
+    }
+    else{
+        console.log("目が遠いです");
+    }
+}
+
+
 </script>
 </body>
 </html>
